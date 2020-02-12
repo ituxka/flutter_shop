@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_udemy_shop/features/product/data/local/models/product_model.dart';
+import 'package:flutter_udemy_shop/features/product/data/remote/models/product_model.dart';
 import 'package:flutter_udemy_shop/features/product/domain/entities/product.dart';
 
 import '../../../../fixtures/fixture_reader.dart';

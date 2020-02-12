@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_udemy_shop/core/error/failures.dart';
+import 'package:flutter_udemy_shop/core/error/failures/failures.dart';
 
 abstract class UseCase<T, Params> {
   Future<Either<Failure, T>> call(Params params);
