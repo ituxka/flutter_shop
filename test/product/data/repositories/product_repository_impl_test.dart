@@ -4,7 +4,7 @@ import 'package:flutter_udemy_shop/core/error/exceptions/remote_db_exceptions.da
 import 'package:flutter_udemy_shop/core/error/failures/remote_db_failures.dart';
 import 'package:flutter_udemy_shop/features/product/data/remote/data_sources/data_source.dart';
 import 'package:flutter_udemy_shop/features/product/data/remote/models/product_model.dart';
-import 'package:flutter_udemy_shop/features/product/data/repository/product_repository_impl.dart';
+import 'package:flutter_udemy_shop/features/product/data/repositories/product_repository_impl.dart';
 import 'package:mockito/mockito.dart';
 
 class MockProductLocalDataSource extends Mock implements ProductRemoteDataSource {}
