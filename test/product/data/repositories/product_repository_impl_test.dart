@@ -5,7 +5,6 @@ import 'package:flutter_udemy_shop/core/error/failures/remote_db_failures.dart';
 import 'package:flutter_udemy_shop/features/product/data/remote/data_sources/data_source.dart';
 import 'package:flutter_udemy_shop/features/product/data/remote/models/product_model.dart';
 import 'package:flutter_udemy_shop/features/product/data/repositories/product_repository_impl.dart';
-import 'package:flutter_udemy_shop/features/product/data/repositories/product_repository_impl_errors.dart';
 import 'package:mockito/mockito.dart';
 
 class MockProductRemoteDataSource extends Mock implements ProductRemoteDataSource {}
@@ -52,7 +51,7 @@ void main() {
       verifyNoMoreInteractions(productRemoteDataSource);
     });
 
-    test('should return DBFailure with message when remoteDataSource throws DBException', () async {
+    test('should return DBFailure when remoteDataSource throws DBException', () async {
       // arrange
       when(productRemoteDataSource.getProduct(any)).thenThrow(NetworkException());
 
@@ -60,12 +59,12 @@ void main() {
       final result = await productRepository.getProduct(tId);
 
       // assert
-      expect(result, equals(Left(const NetworkFailure(dbGeneralFailureMessage))));
+      expect(result, equals(Left(NetworkFailure())));
       verify(productRemoteDataSource.getProduct(tId));
       verifyNoMoreInteractions(productRemoteDataSource);
     });
 
-    test('should return NoEntityFailure message when remoteDataSource throws NoEntityException', () async {
+    test('should return NoEntityFailure when remoteDataSource throws NoEntityException', () async {
       // arrange
       when(productRemoteDataSource.getProduct(any)).thenThrow(NoEntityException());
 
@@ -73,7 +72,7 @@ void main() {
       final result = await productRepository.getProduct(tId);
 
       // assert
-      expect(result, Left(const NoEntityFailure(dbNoEntityFailureMessage)));
+      expect(result, Left(NoEntityFailure()));
       verify(productRemoteDataSource.getProduct(tId));
       verifyNoMoreInteractions(productRemoteDataSource);
     });
@@ -101,10 +100,10 @@ void main() {
       final result = await productRepository.getProducts();
 
       // assert
-      expect(result, equals(Left(const NetworkFailure(dbGeneralFailureMessage))));
+      expect(result, equals(Left(NetworkFailure())));
     });
 
-    test('should return NoEntityFailure message when remoteDataSource throws NoEntityException', () async {
+    test('should return NoEntityFailure when remoteDataSource throws NoEntityException', () async {
       // arrange
       when(productRemoteDataSource.getProducts()).thenThrow(NoEntityException());
 
@@ -112,7 +111,7 @@ void main() {
       final result = await productRepository.getProducts();
 
       // assert
-      expect(result, Left(const NoEntityFailure(dbNoEntityFailureMessage)));
+      expect(result, Left(NoEntityFailure()));
       verify(productRemoteDataSource.getProducts());
       verifyNoMoreInteractions(productRemoteDataSource);
     });
