@@ -4,11 +4,13 @@ import 'package:flutter_udemy_shop/features/product/data/remote/models/product_m
 abstract class ProductRemoteDataSource {
   /// [getProduct] retrieves [ProductModel] from remote database
   ///
-  /// Throws [NoEntityException] if there is no entity in remote database
+  /// Throws [DBException] if there is an error retrieving entity
+  /// Throws [NoEntityException] if there is no such entity in database
   Future<ProductModel> getProduct(int id);
 
   /// [getProducts] retrieves all [ProductModel] from remote database
   ///
-  /// Throws [NoEntityException] if there are no products
+  /// Throws [DBException] if there is an error retrieving entities
+  /// Throws [NoEntityException] if there are no entities in database
   Future<List<ProductModel>> getProducts();
 }
