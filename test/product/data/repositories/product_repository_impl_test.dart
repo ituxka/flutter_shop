@@ -54,13 +54,13 @@ void main() {
 
     test('should return DBFailure with message when remoteDataSource throws DBException', () async {
       // arrange
-      when(productRemoteDataSource.getProduct(any)).thenThrow(DBException());
+      when(productRemoteDataSource.getProduct(any)).thenThrow(NetworkException());
 
       // act
       final result = await productRepository.getProduct(tId);
 
       // assert
-      expect(result, equals(Left(const DBFailure(dbGeneralFailureMessage))));
+      expect(result, equals(Left(const NetworkFailure(dbGeneralFailureMessage))));
       verify(productRemoteDataSource.getProduct(tId));
       verifyNoMoreInteractions(productRemoteDataSource);
     });
@@ -95,13 +95,13 @@ void main() {
 
     test('should return DBFailure if remote call was UNsuccessfyl', () async {
       // arrange
-      when(productRemoteDataSource.getProducts()).thenThrow(DBException());
+      when(productRemoteDataSource.getProducts()).thenThrow(NetworkException());
 
       // act
       final result = await productRepository.getProducts();
 
       // assert
-      expect(result, equals(Left(const DBFailure(dbGeneralFailureMessage))));
+      expect(result, equals(Left(const NetworkFailure(dbGeneralFailureMessage))));
     });
 
     test('should return NoEntityFailure message when remoteDataSource throws NoEntityException', () async {

@@ -31,8 +31,8 @@ class ProductRepositoryImpl implements ProductRepository {
     try {
       final data = await fn();
       return Right(data);
-    } on DBException {
-      return Left(const DBFailure(dbGeneralFailureMessage));
+    } on NetworkException {
+      return Left(const NetworkFailure(dbGeneralFailureMessage));
     } on NoEntityException {
       return Left(const NoEntityFailure(dbNoEntityFailureMessage));
     } catch (e) {
