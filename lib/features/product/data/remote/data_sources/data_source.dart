@@ -2,11 +2,6 @@ import 'package:flutter_udemy_shop/core/error/exceptions/remote_db_exceptions.da
 import 'package:flutter_udemy_shop/features/product/data/remote/models/product_model.dart';
 
 abstract class ProductRemoteDataSource {
-  /// [saveProductModel] saves [ProductModel] to remote database
-  ///
-  /// Throws [UnableToSaveDBException] if could not save product
-  Future<void> saveProduct(ProductModel productModel);
-
   /// [getProduct] retrieves [ProductModel] from remote database
   ///
   /// Throws [NoEntityException] if there is no entity in remote database
