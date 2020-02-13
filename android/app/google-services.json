@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1067204609536",
+    "firebase_url": "https://fire-flutter-udemy-shop.firebaseio.com",
+    "project_id": "fire-flutter-udemy-shop",
+    "storage_bucket": "fire-flutter-udemy-shop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067204609536:android:fa85e2a3b7c1c8070bfae5",
+        "android_client_info": {
+          "package_name": "com.example.flutter_udemy_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067204609536-v5gfip3goe4np4jurvnai2a3jddaqpmo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGbroQlb---Bvw-lIDoDpalSLPCN1rokg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067204609536-v5gfip3goe4np4jurvnai2a3jddaqpmo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
