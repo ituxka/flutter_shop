@@ -1,6 +1,10 @@
 import 'package:flutter_udemy_shop/features/product/domain/entities/product.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
+part 'product_model.g.dart';
+
+@JsonSerializable()
 class ProductModel extends Product {
   const ProductModel({
     @required int id,
@@ -9,23 +13,9 @@ class ProductModel extends Product {
     @required String imageUrl,
   }) : super(id: id, title: title, price: price, imageUrl: imageUrl);
 
-  factory ProductModel.fromJson(Map<String, Object> json) {
-    return ProductModel(
-      id: (json['id'] as num).toInt(),
-      title: json['title'].toString(),
-      price: (json['price'] as num).toDouble(),
-      imageUrl: json['imageUrl'].toString(),
-    );
-  }
+  factory ProductModel.fromJson(Map<String, dynamic> json) => _$ProductModelFromJson(json);
 
-  Map<String, Object> toJson() {
-    return {
-      'id': id,
-      'title': title,
-      'price': price,
-      'imageUrl': imageUrl,
-    };
-  }
+  Map<String, dynamic> toJson() => _$ProductModelToJson(this);
 
   @override
   List<Object> get props => [id, title, price, imageUrl];
